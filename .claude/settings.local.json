@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git push:*)",
+      "Bash(npx skills:*)",
+      "Bash(mkdir -p /Users/eduardograciano/Documents/laboratory/crypto-tracker/.claude/skills/typescript)",
+      "Bash(mkdir -p /Users/eduardograciano/Documents/laboratory/crypto-tracker/.claude/skills/react)",
+      "Bash(mkdir -p /Users/eduardograciano/Documents/laboratory/crypto-tracker/.claude/skills/react-native)"
+    ]
+  }
+}
