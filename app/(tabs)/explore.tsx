@@ -5,7 +5,7 @@ import { Collapsible } from '@/components/ui/collapsible';
 import { ExternalLink } from '@/components/external-link';
 import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { Text } from '@/components/text';
-import { ThemedView } from '@/components/themed-view';
+import { View } from '@/components/view';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Fonts } from '@/constants/theme';
 
@@ -21,7 +21,7 @@ export default function TabTwoScreen() {
           style={styles.headerImage}
         />
       }>
-      <ThemedView style={styles.titleContainer}>
+      <View style={styles.titleContainer}>
         <Text
           type="title"
           style={{
@@ -29,7 +29,7 @@ export default function TabTwoScreen() {
           }}>
           Explore
         </Text>
-      </ThemedView>
+      </View>
       <Text>This app includes example code to help you get started.</Text>
       <Collapsible title="File-based routing">
         <Text>
