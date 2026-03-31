@@ -36,9 +36,7 @@ export default function HomeScreen() {
 
   const btc = coins?.find((c) => c.symbol === BTC_SYMBOL);
 
-  function renderCoin({ item }: { item: CmcCoin }) {
-    return <CoinRow coin={item} />;
-  }
+  const renderCoin = ({ item }: { item: CmcCoin }) => <CoinRow coin={item} />;
 
   const listHeader = (
     <View>

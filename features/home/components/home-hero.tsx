@@ -1,4 +1,6 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+
+import { View } from '@/components/view';
 
 import { Text } from '@/components/text';
 import { CHANGE_COLORS } from '@/features/home/config';
