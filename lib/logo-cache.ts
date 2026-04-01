@@ -1,8 +1,8 @@
-import { MMKV } from 'react-native-mmkv';
+import { createMMKV } from 'react-native-mmkv';
 
 import type { LogoMap } from '@/types/cmc';
 
-const storage = new MMKV({ id: 'logo-cache' });
+const storage = createMMKV({ id: 'logo-cache' });
 
 const LOGO_MAP_KEY = 'logoMap';
 const TIMESTAMP_KEY = 'logoMapTimestamp';
@@ -21,6 +21,6 @@ export const writeLogoCache = (map: LogoMap): void => {
 };
 
 export const clearLogoCache = (): void => {
-  storage.delete(LOGO_MAP_KEY);
-  storage.delete(TIMESTAMP_KEY);
+  storage.remove(LOGO_MAP_KEY);
+  storage.remove(TIMESTAMP_KEY);
 };
