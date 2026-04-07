@@ -5,7 +5,12 @@
       "Bash(npx skills:*)",
       "Bash(mkdir -p /Users/eduardograciano/Documents/laboratory/crypto-tracker/.claude/skills/typescript)",
       "Bash(mkdir -p /Users/eduardograciano/Documents/laboratory/crypto-tracker/.claude/skills/react)",
-      "Bash(mkdir -p /Users/eduardograciano/Documents/laboratory/crypto-tracker/.claude/skills/react-native)"
+      "Bash(mkdir -p /Users/eduardograciano/Documents/laboratory/crypto-tracker/.claude/skills/react-native)",
+      "mcp__plugin_engram_engram__mem_search",
+      "Bash(npm install:*)",
+      "Bash(ls /Users/eduardograciano/Documents/laboratory/crypto-tracker/app/\\\\\\(tabs\\\\\\)/)",
+      "mcp__plugin_engram_engram__mem_save",
+      "Bash(ls /Users/eduardograciano/Documents/laboratory/crypto-tracker/app/\\\\\\(tabs\\\\\\))"
     ]
   }
 }

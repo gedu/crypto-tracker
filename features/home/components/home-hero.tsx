@@ -1,8 +1,8 @@
 import { StyleSheet } from 'react-native';
 
 import { View } from '@/components/view';
-
 import { Text } from '@/components/text';
+import { CoinLogo } from '@/features/home/components/coin-logo';
 import { CHANGE_COLORS } from '@/features/home/config';
 import { formatChange, formatPrice } from '@/features/home/utils';
 import type { CmcCoin } from '@/types/cmc';
@@ -12,9 +12,10 @@ interface HomeHeroProps {
   isLoading: boolean;
   isError: boolean;
   height: number;
+  logoUrl?: string;
 }
 
-export function HomeHero({ coin, isLoading, isError, height }: HomeHeroProps) {
+export function HomeHero({ coin, isLoading, isError, height, logoUrl }: HomeHeroProps) {
   if (isLoading) {
     return (
       <View
@@ -55,6 +56,7 @@ export function HomeHero({ coin, isLoading, isError, height }: HomeHeroProps) {
       accessibilityLabel={heroLabel}
       style={[styles.hero, { height: height * 0.25 }]}
     >
+      <CoinLogo accessible={false} uri={logoUrl} size={48} />
       <Text accessible={false} style={styles.label}>{coin.name} ({coin.symbol})</Text>
       <Text accessible={false} style={styles.price}>{formatPrice(coin.quote.USD.price)}</Text>
       <Text accessible={false} style={[styles.change, { color: changeColor }]}>

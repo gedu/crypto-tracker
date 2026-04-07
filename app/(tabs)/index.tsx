@@ -9,6 +9,7 @@ import { HomeHero } from "@/features/home/components/home-hero";
 import { ListSectionHeader } from "@/features/home/components/list-section-header";
 import { APP_NAME, BTC_SYMBOL, COIN_ITEM_HEIGHT } from "@/features/home/config";
 import { useColorScheme } from "@/hooks/use-color-scheme";
+import { useCoinLogos } from "@/hooks/use-coin-logos";
 import { useCryptoListings } from "@/hooks/use-crypto-listings";
 import type { CmcCoin } from "@/types/cmc";
 
@@ -33,10 +34,14 @@ export default function HomeScreen() {
   const colorScheme = useColorScheme();
   const colors = Colors[colorScheme ?? "light"];
   const { data: coins, isLoading, isError } = useCryptoListings();
+  const ids = coins?.map((c) => c.id) ?? [];
+  const logoMap = useCoinLogos(ids);
 
   const btc = coins?.find((c) => c.symbol === BTC_SYMBOL);
 
-  const renderCoin = ({ item }: { item: CmcCoin }) => <CoinRow coin={item} />;
+  const renderCoin = ({ item }: { item: CmcCoin }) => (
+    <CoinRow coin={item} logoUrl={logoMap[item.id]} />
+  );
 
   const listHeader = (
     <View>
@@ -48,6 +53,7 @@ export default function HomeScreen() {
         isLoading={isLoading}
         isError={isError}
         height={height}
+        logoUrl={btc ? logoMap[btc.id] : undefined}
       />
       <ListSectionHeader borderColor={colors.icon} />
     </View>
