@@ -69,6 +69,8 @@ export default function HomeScreen() {
         getItemLayout={getItemLayout}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: insets.bottom + 16 }}
+        accessibilityLabel="Cryptocurrency list"
+        accessibilityState={{ busy: isLoading }}
       />
     </View>
   );

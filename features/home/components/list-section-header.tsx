@@ -8,8 +8,12 @@ interface ListSectionHeaderProps {
 
 export function ListSectionHeader({ borderColor }: ListSectionHeaderProps) {
   return (
-    <View style={[styles.container, { borderBottomColor: borderColor }]}>
-      <Text style={styles.label}>All Cryptos</Text>
+    <View
+      accessibilityRole="header"
+      accessibilityLabel="All Cryptocurrencies section"
+      style={[styles.container, { borderBottomColor: borderColor }]}
+    >
+      <Text accessible={false} style={styles.label}>All Cryptos</Text>
     </View>
   );
 }
