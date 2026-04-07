@@ -38,3 +38,16 @@ export interface CmcListingsResponse {
   status: CmcStatus;
   data: CmcCoin[];
 }
+
+export interface CmcCoinMetadata {
+  id: number;
+  name: string;
+  logo: string;
+}
+
+export interface CmcMetadataResponse {
+  status: CmcStatus;
+  data: Record<string, CmcCoinMetadata>;
+}
+
+export type LogoMap = Record<number, string>;
