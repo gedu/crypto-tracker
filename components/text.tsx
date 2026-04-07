@@ -15,12 +15,18 @@ export function Text({
   lightColor,
   darkColor,
   type = 'default',
+  accessibilityRole,
   ...rest
 }: ThemedTextProps) {
   const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
 
+  const resolvedRole =
+    accessibilityRole ??
+    (type === 'title' || type === 'subtitle' ? 'header' : undefined);
+
   return (
     <RNText
+      accessibilityRole={resolvedRole}
       style={[
         { color },
         type === 'default' ? styles.default : undefined,

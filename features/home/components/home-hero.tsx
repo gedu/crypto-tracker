@@ -17,16 +17,26 @@ interface HomeHeroProps {
 export function HomeHero({ coin, isLoading, isError, height }: HomeHeroProps) {
   if (isLoading) {
     return (
-      <View style={[styles.hero, { height: height * 0.25 }]}>
-        <Text style={styles.label}>Loading...</Text>
+      <View
+        accessible={true}
+        accessibilityLabel="Loading Bitcoin data"
+        accessibilityState={{ busy: true }}
+        style={[styles.hero, { height: height * 0.25 }]}
+      >
+        <Text accessible={false} style={styles.label}>Loading...</Text>
       </View>
     );
   }
 
   if (isError) {
     return (
-      <View style={[styles.hero, { height: height * 0.25 }]}>
-        <Text style={styles.label}>Failed to load</Text>
+      <View
+        accessible={true}
+        accessibilityLabel="Failed to load Bitcoin data"
+        accessibilityLiveRegion="assertive"
+        style={[styles.hero, { height: height * 0.25 }]}
+      >
+        <Text accessible={false} style={styles.label}>Failed to load</Text>
       </View>
     );
   }
@@ -35,12 +45,19 @@ export function HomeHero({ coin, isLoading, isError, height }: HomeHeroProps) {
 
   const change = coin.quote.USD.percent_change_24h;
   const changeColor = change >= 0 ? CHANGE_COLORS.positive : CHANGE_COLORS.negative;
+  const direction = change >= 0 ? 'up' : 'down';
+  const changeAbs = Math.abs(change).toFixed(2);
+  const heroLabel = `${coin.name} featured. Price ${formatPrice(coin.quote.USD.price)}, ${direction} ${changeAbs}% today`;
 
   return (
-    <View style={[styles.hero, { height: height * 0.25 }]}>
-      <Text style={styles.label}>{coin.name} ({coin.symbol})</Text>
-      <Text style={styles.price}>{formatPrice(coin.quote.USD.price)}</Text>
-      <Text style={[styles.change, { color: changeColor }]}>
+    <View
+      accessible={true}
+      accessibilityLabel={heroLabel}
+      style={[styles.hero, { height: height * 0.25 }]}
+    >
+      <Text accessible={false} style={styles.label}>{coin.name} ({coin.symbol})</Text>
+      <Text accessible={false} style={styles.price}>{formatPrice(coin.quote.USD.price)}</Text>
+      <Text accessible={false} style={[styles.change, { color: changeColor }]}>
         {formatChange(change)} today
       </Text>
     </View>
